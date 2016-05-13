@@ -1,0 +1,23 @@
+{
+  "name": "news-scraper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael Jasper <mdjasper@ldschurch.org>",
+  "license": "ISC",
+  "dependencies": {
+    "brain": "^0.7.0",
+    "cheerio": "^0.19.0",
+    "drunk-timer": "^0.1.0",
+    "firebase": "^2.3.0",
+    "google-news": "^1.4.6",
+    "natural": "^0.2.1",
+    "request": "^2.64.0",
+    "sleep": "^3.0.0",
+    "sqlite3": "^3.1.0",
+    "stopwords": "0.0.5"
+  }
+}
