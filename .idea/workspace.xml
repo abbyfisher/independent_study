@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7cab947e-153e-4f6d-8938-492e292a51a6" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/networks/1/0.834--2016-06-01-16-17-57.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="google-news-neural-network-master.iws" />
@@ -608,12 +609,12 @@
       <workItem from="1464106036607" duration="207000" />
       <workItem from="1464107541428" duration="307000" />
       <workItem from="1464819218524" duration="26000" />
-      <workItem from="1464819400726" duration="365000" />
+      <workItem from="1464819400726" duration="374000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2401000" />
+    <option name="totallyTimeSpent" value="2410000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
