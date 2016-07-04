@@ -90,6 +90,6 @@ print "accuracy: ", accuracy
 
 #save network for future use
 
-filename = 'networks/1/' + str(round(accuracy,3)) + '--' + datetime.now().strftime('%Y-%m-%d-%H-%M-%S') + '.xml'
+filename = 'networks/newest/' + str(round(accuracy,3)) + '--' + datetime.now().strftime('%Y-%m-%d-%H-%M-%S') + '.xml'
 
 NetworkWriter.writeToFile(net, filename)
