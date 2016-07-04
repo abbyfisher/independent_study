@@ -10,9 +10,11 @@ var data = require('./data-exports/export5.js'),
 //hooks library functions to string prototype
 stemmer.attach(); 
 
-console.time('Combine Strings')
+console.time('Combine Strings');
 //combine all data for each row into one string
 var combined = '';
+
+//data is the export5 file within data-exports looks like the data was imported into this program from the firebase database. 
 for(d in data){
 	if(data[d].symbol != 'brk') {
 		var headlines = data[d].headlines.join();
@@ -29,14 +31,21 @@ console.time('Clean & Tokenize');
 
 combined = combined.split(' ').filter(function(word){return (!~stopwords.indexOf(word))||(!~ignore.indexOf(word))}).join(' ');
 
+//combined is the string that is created from the bodies and headlines within 
+// he exports file being combined into one large sting with all of the stopwords taken out
+
+
 //create an array of tokens
 var tokens = combined.tokenizeAndStem();
+
+//the tokens are the strings broken up into an array 
 console.timeEnd('Clean & Tokenize');
 
 console.time('Count and sort Tokens');
 //count occurances of unique tokens
 var counts = {};
 tokens.forEach(function(x) { counts[x] = (counts[x] || 0)+1; });
+
 
 // transform into a array of counted tokens
 // and remove ignore words
@@ -57,7 +66,6 @@ countsArray.sort(function(a,b) {
   return 0;
 });
 
-//console.log(countsArray);
 console.timeEnd('Count and sort Tokens');
 
 
@@ -77,6 +85,8 @@ var dict = [];
 filtered.forEach(function(d){
 	dict.push(d.key);
 });
+
+//dict is the new array of words sorted by use after the highest and lowest used words were taken out
 console.timeEnd('Select Tokens');
 
 console.time('Build Training Data');
@@ -88,7 +98,10 @@ for(e in data) {
 
 	var signature = [];
 	var sigSource = [].concat(entry.headlines, entry.bodies).toString().replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ").toLowerCase().tokenizeAndStem();
+	
 	var features = [];
+	
+	//it is checking if d is within sigSource and if it is it pushed 1 into signature and d into features other wise it pushes 0 into signiture 
 	dict.forEach(function (d) {
 		if (sigSource.indexOf(d) > -1) {
 			signature.push(1);
@@ -98,6 +111,8 @@ for(e in data) {
 			signature.push(0)
 		}
 	});
+
+	//signature is the array that is created and written to the training.js file
 
 	var symbol = entry.symbol;
 	var date = entry.date;
@@ -115,19 +130,20 @@ console.timeEnd('Build Training Data');
 
 console.time('Write File');
 
-//console.log(JSON.stringify((trainingData)));
 
 require('fs').writeFile(
 
 	'./training.js',
 
 	JSON.stringify(trainingData),
+	
 
 	function (err) {
 		if (err) {
 			console.error('Crap happens');
 		}
 	}
+	
 );
 
 console.timeEnd('Write File');
