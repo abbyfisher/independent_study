@@ -112,11 +112,14 @@ for(e in data) {
 		}
 	});
 
-	//signature is the array that is created and written to the training.js file
+	
 
 	var symbol = entry.symbol;
 	var date = entry.date;
 	var change = changeData[symbol][date];
+
+	//it uses change to see if the symbol and date are within the clean and change data file if the entry is
+	//found and has a 0 or 1 is pushes the signature into training data that will be used to create trianing.js
 
 	if(change === 1 || change === 0){
 		trainingData.push({
