@@ -150,3 +150,5 @@ require('fs').writeFile(
 );
 
 console.timeEnd('Write File');
+
+//added comments by Abby Fisher
