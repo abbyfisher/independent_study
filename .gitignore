@@ -1,4 +1,9 @@
-/node_modules
-/config/config.json
+
+
 npm-debug.logs
-/.idea
+
+
+/node_modules/
+/.idea/
+.DS_Store
+config/config.json
