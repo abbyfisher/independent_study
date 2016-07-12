@@ -1,9 +1,5 @@
-
-
-npm-debug.logs
-
-
-/node_modules/
 /.idea/
+/node_modules/
+npm-debug.logs
 .DS_Store
 config/config.json
