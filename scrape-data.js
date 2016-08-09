@@ -2,7 +2,10 @@
 var request = require( 'request' ),
     cheerio = require( 'cheerio' ),
 //these queries are the top ten stock markets
-    queries = [ 'XOM' , 'MSFT', 'XOM', 'AAPL', 'JNJ', 'WFC', 'BRK', 'JPM', 'AT%26T', 'PFE', 'GE' ],
+    queries = ['zika virus'],
+    //    queries = [ 'XOM' , 'MSFT', 'XOM', 'AAPL', 'JNJ', 'WFC', 'BRK', 'JPM', 'AT%26T', 'PFE', 'GE' ],
+
+
 //database used for storing the results of the scrap on google news
     Firebase = require( 'firebase' ),
     db = new Firebase( 'https://torrid-inferno-8475.firebaseio.com/' );
@@ -13,6 +16,11 @@ UA = [ 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/600.8.9 (KHT
 
 //build list of queries
 var year = 2016;
+
+//original loops 
+//for(var month = 1; month <= 11; month++) {
+// for(var day = 1; day <= 30; day++) {
+//     if(month === 1 && day >= 23)
 
 for( var month = 1; month <= 1; month++ ){
     for( var day = 1; day <= 10; day++ ){
@@ -29,6 +37,7 @@ for( var month = 1; month <= 1; month++ ){
                         }
                     }
                 } );
+                console.log(queryQueue)
             } );
           
         }
