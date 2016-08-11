@@ -7,6 +7,7 @@ import json
 import random
 from datetime import datetime
 
+#place saved network here to run the saved network
 filename = 'networks/0.824--2015-11-17-22-51-18.xml'
 
 
