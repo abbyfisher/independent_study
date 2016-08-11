@@ -7,7 +7,8 @@ import json
 import random
 from datetime import datetime
 
-filename = 'networks/0.824--2015-11-17-22-51-18.xml'
+#place network file name here to run with a saved network
+filename = 'networks/newest/0.473--2016-08-07-10-23-01.xml'
 
 
 with open('training.js') as data_file:

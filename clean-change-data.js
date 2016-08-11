@@ -1,3 +1,5 @@
+//this file will need to be modified in order to get a new query set to run
+
 module.exports = {
     "AAPL":{
         '5/11/2015': 0,

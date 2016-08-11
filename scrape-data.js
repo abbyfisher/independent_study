@@ -4,11 +4,12 @@ var request = require( 'request' ),
 //these queries are the top ten stock markets
     queries = ['zika virus'],
     //    queries = [ 'XOM' , 'MSFT', 'XOM', 'AAPL', 'JNJ', 'WFC', 'BRK', 'JPM', 'AT%26T', 'PFE', 'GE' ],
-
-
+    
 //database used for storing the results of the scrap on google news
     Firebase = require( 'firebase' ),
-    db = new Firebase( 'https://torrid-inferno-8475.firebaseio.com/' );
+    //place url here to link with firebase database
+    db = new Firebase( '' );
+
 queryQueue = [];
 delay = 3000;
 UA = [ 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/600.8.9 (KHTML, like Gecko) Version/8.0.8 Safari/600.8.9', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.0', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:40.0) Gecko/20100101 Firefox/40.0', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.93 Safari/537.36', 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko' ];
@@ -17,14 +18,11 @@ UA = [ 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/600.8.9 (KHT
 //build list of queries
 var year = 2016;
 
-//original loops 
-//for(var month = 1; month <= 11; month++) {
-// for(var day = 1; day <= 30; day++) {
-//     if(month === 1 && day >= 23)
+//the loop can be modified to hit a specific range of dates
 
-for( var month = 1; month <= 1; month++ ){
-    for( var day = 1; day <= 10; day++ ){
-        if( month === 1 && day >= 10 ){ //do partial months
+for( var month = 1; month <= 11; month++ ){
+    for( var day = 1; day <= 30; day++ ){
+        if( month === 1 && day >= 23 ){ //do partial months
             queries.forEach( function( term ){
                 var ua = UA[ Math.floor( (Math.random() * 5) ) + 1 ];
                 queryQueue.push( {
